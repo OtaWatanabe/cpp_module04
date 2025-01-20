@@ -34,7 +34,7 @@ std::string const &Character::getName(void) const {
 void Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; ++i) {
 		if (inventory_[i] == NULL) {
-			inventory_[i] = m->clone();
+			inventory_[i] = m;
 			return;
 		}
 	}
@@ -42,7 +42,6 @@ void Character::equip(AMateria* m) {
 
 void Character::unequip(int idx) {
 	if (0 <= idx && idx < 4) {
-		delete inventory_[idx];
 		inventory_[idx] = NULL;
 	}
 }

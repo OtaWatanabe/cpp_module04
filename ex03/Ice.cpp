@@ -13,7 +13,7 @@ AMateria*	Ice::clone(void) const {
 	AMateria	*ret = new Ice(*this);
 	if (ret == NULL) {
 		std::cerr << "memory allocation failed" << std::endl;
-		std::exit(1);
+		exit(1);
 	}
 	return ret;
 }

@@ -1,11 +1,16 @@
 #include "Dog.hpp"
 
 Dog::Dog(void) : Animal("Dog"), brain_(new Brain()) {
+	if (brain_ == NULL) {
+		std::cerr << "memory allocation failed" << std::endl;
+		exit(1);
+	}
 	std::cout << "Dog: default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &dog) : Animal(dog), brain_(new Brain(*dog.brain_)) {
+Dog::Dog(const Dog &dog) : Animal(), brain_(NULL) {
 	std::cout << "Dog: copy constructor called" << std::endl;
+	operator=(dog);
 }
 
 Dog &Dog::operator = (const Dog &dog) {
@@ -13,6 +18,10 @@ Dog &Dog::operator = (const Dog &dog) {
 	Animal::operator=(dog);
 	delete brain_;
 	brain_ = new Brain(*dog.brain_);
+	if (brain_ == NULL) {
+		std::cerr << "memory allocation failed" << std::endl;
+		exit(1);
+	}
 	return *this;
 }
 

@@ -2,11 +2,6 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-__attribute__((destructor))
-static void destructor() {
-	system("leaks -q test");
-}
-
 int	main(void) {
 	const Animal *animalArray[10];
 

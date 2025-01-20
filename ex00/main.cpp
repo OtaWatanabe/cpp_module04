@@ -45,13 +45,14 @@ int	main(void) {
 	const WrongAnimal* metaW = new WrongAnimal();
 	const WrongAnimal* iW = new WrongCat();
 	const WrongAnimal* jW = new WrongAnimal(*iW);
-	WrongAnimal cpW = *metaW;
+	WrongAnimal cpW;
+	cpW = *metaW;
 
 	std::cout << iW->getType() << " " << std::endl;
 	std::cout << jW->getType() << " " << std::endl;
 	std::cout << "default: " << metaW->getType() << std::endl;
 	std::cout << "default: " << cpW.getType() << std::endl;
-	iW->makeSound(); //will output the cat sound! j->makeSound();
+	iW->makeSound(); 
 	metaW->makeSound();
 	delete metaW;
 	delete iW;

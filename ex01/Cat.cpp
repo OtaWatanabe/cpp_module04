@@ -3,12 +3,12 @@
 Cat::Cat(void) : Animal("Cat"), brain_(new Brain()) {
 	if (brain_ == NULL) {
 		std::cerr << "memory allocation failed" << std::endl;
-		std::exit(1);
+		exit(1);
 	}
 	std::cout << "Cat: default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &cat) : Animal() {
+Cat::Cat(const Cat &cat) : Animal(), brain_(NULL) {
 	std::cout << "Cat: copy constructor called" << std::endl;
 	Cat::operator=(cat);
 }
@@ -20,7 +20,7 @@ Cat &Cat::operator = (const Cat &cat) {
 	brain_ = new Brain(*cat.brain_);
 	if (brain_ == NULL) {
 		std::cerr << "memory allocation failed" << std::endl;
-		std::exit(1);
+		exit(1);
 	}
 	return *this;
 }

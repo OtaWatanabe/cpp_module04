@@ -2,6 +2,7 @@
 # define CAT_HPP
 # include "Animal.hpp"
 # include "Brain.hpp"
+# include <cstdlib>
 
 class Cat : public Animal {
 private:

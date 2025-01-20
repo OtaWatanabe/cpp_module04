@@ -2,6 +2,7 @@
 # define CURE_HPP
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
+# include <cstdlib>
 
 class Cure : public AMateria {
 public:

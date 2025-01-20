@@ -2,11 +2,6 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-__attribute__((destructor))
-static void destructor() {
-	system("leaks -q test");
-}
-
 int	main(void) {
 	const Animal *animalArray[10];
 
@@ -42,6 +37,6 @@ int	main(void) {
 	std::cout << "1: " << cat1.getIdea(0) << std::endl;
 	std::cout << "2: " << cat2.getIdea(0) << std::endl;
 
-	// Animal a; error
+	// Animal a; //error
 	return 0;
 }
